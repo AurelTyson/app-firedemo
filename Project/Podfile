@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'FireDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for FireDemo
+
+    pod 'ActionKit', :git => 'https://github.com/AurelT/ActionKit.git', :branch => 'swift3.0'
+
+    pod 'Firebase', '3.8.0'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    
+    pod 'MLInputDodger'
+
+end
