@@ -8,9 +8,10 @@
 
 import UIKit
 import ActionKit
+import FBSDKLoginKit
 import Firebase
 
-open class LoginViewController: UIViewController {
+open class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     // MARK: - Constantes
     
@@ -23,7 +24,7 @@ open class LoginViewController: UIViewController {
     
     @IBOutlet weak var btnSeConnecter: UIButton!
     @IBOutlet weak var btnInscrire: UIButton!
-    @IBOutlet weak var btnFacebook: UIButton!
+    @IBOutlet weak var btnFacebook: FBSDKLoginButton!
     
     // MARK: - Attributs
     
@@ -95,6 +96,9 @@ open class LoginViewController: UIViewController {
             
         }
         
+        // Le bouton Facebook
+        self.btnFacebook.delegate = self
+        
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -146,6 +150,27 @@ open class LoginViewController: UIViewController {
         
         // Affichage
         self.present(lNextVC, animated: true, completion: nil)
+        
+    }
+    
+    // MARK: - FBSDKLoginButtonDelegate
+    
+    open func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            
+            // Check de connexion
+            self.checkConnexion()
+            
+        }
+        
+    }
+    
+    open func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+        NSLog(">> Déconnexion")
         
     }
     

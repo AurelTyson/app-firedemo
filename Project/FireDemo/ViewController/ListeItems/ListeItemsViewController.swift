@@ -8,6 +8,7 @@
 
 import UIKit
 import ActionKit
+import FBSDKLoginKit
 import Firebase
 import MLInputDodger
 
@@ -73,8 +74,9 @@ open class ListeItemsViewController: UIViewController, UITableViewDataSource, UI
         
         // Le bouton d'ajout
         let lBtnAjout = UIButton()
-        lBtnAjout.setTitle("+", for: .normal)
-        lBtnAjout.setTitleColor(.white, for: .normal)
+        lBtnAjout.titleLabel?.font = .materialIcon(size: 20)
+        lBtnAjout.setTitle("add", for: .normal)
+        lBtnAjout.setTitleColor(.black, for: .normal)
         lBtnAjout.addControlEvent(.touchUpInside) {
             
             // L'item à créer
@@ -92,11 +94,39 @@ open class ListeItemsViewController: UIViewController, UITableViewDataSource, UI
         }
         lBtnAjout.sizeToFit()
         
+        // Le bouton de déconnexion
+        let lBtnDeconnexion = UIButton()
+        lBtnDeconnexion.titleLabel?.font = .materialIcon(size: 20)
+        lBtnDeconnexion.setTitle("exit_to_app", for: .normal)
+        lBtnDeconnexion.setTitleColor(.black, for: .normal)
+        lBtnDeconnexion.addControlEvent(.touchUpInside) {
+            
+            do {
+                
+                // Déconnexion
+                FBSDKLoginManager().logOut()
+                try FIRAuth.auth()?.signOut()
+                
+            }
+            catch {
+                
+                NSLog(">> Erreur de déconnexion")
+                
+            }
+            
+            // Fermeture du navigationController
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            
+        }
+        lBtnDeconnexion.sizeToFit()
+        
         // Transformation en UIBarButtonItem (obligé de faire ça sinon le bouton n'est pas centré)
         let lBarBtnAdd = UIBarButtonItem(customView: lBtnAjout)
+        let lBarBtnDeconnexion = UIBarButtonItem(customView: lBtnDeconnexion)
         
         // Ajout à la navigationBar
         self.navigationController?.navigationBar.topItem!.rightBarButtonItems = [lBarBtnAdd]
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItems = [lBarBtnDeconnexion]
         
         // Chargement des données
         self.refreshData()
@@ -213,6 +243,30 @@ open class ListeItemsViewController: UIViewController, UITableViewDataSource, UI
         
         // Set des infos
         lCell.set(item: lItem)
+        
+        // L'action de suppression
+        lCell.actionBtnDelete = {
+            
+            // Suppression de l'item
+            lItem.delete()
+            
+        }
+        
+        // L'action de check
+        lCell.actionBtnEtat = {
+            
+            // Si checké
+            if lItem.etat == .checked {
+                lItem.etat = .unchecked
+            }
+            else {
+                lItem.etat = .checked
+            }
+            
+            // Sauvegarde
+            lItem.save()
+            
+        }
         
         // On renvoie la cellule configurée
         return lCell

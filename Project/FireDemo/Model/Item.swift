@@ -107,5 +107,23 @@ open class Item: NSObject {
         lChildNode.setValue(self.dataObject)
         
     }
+    
+    public func delete() {
+        
+        // Si on a une clé
+        guard let lRef = self.ref else {
+            return
+        }
+        
+        // La reference
+        let lDatabaseRef = FIRDatabase.database().reference()
+        
+        // Le noeuf de sauvegarde
+        let lChildNode = lDatabaseRef.child("items").child(lRef)
+        
+        // Suppression
+        lChildNode.removeValue()
+        
+    }
 
 }

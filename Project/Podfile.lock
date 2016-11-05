@@ -1,5 +1,23 @@
 PODS:
   - ActionKit (1.2.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FBSDKCoreKit (4.17.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.17.0):
+    - FBSDKCoreKit
   - Firebase (3.8.0):
     - Firebase/Core (= 3.8.0)
   - Firebase/Auth (3.8.0):
@@ -45,6 +63,8 @@ PODS:
 
 DEPENDENCIES:
   - ActionKit (from `https://github.com/AurelT/ActionKit.git`, branch `swift3.0`)
+  - FacebookCore
+  - FacebookLogin
   - Firebase (= 3.8.0)
   - Firebase/Auth
   - Firebase/Database
@@ -62,6 +82,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ActionKit: c564d337310f1273e975ef3762388c8d9295639d
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
+  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -74,6 +99,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   MLInputDodger: 832d3163b394405fd5a5ed2b0cbbc264ed10c7c0
 
-PODFILE CHECKSUM: 3b88b7cf65b53ad41f9d6239aa5dea97a34ef1f7
+PODFILE CHECKSUM: b092848ba4eb74c67fd25dcff0d9d01d4bf221fe
 
 COCOAPODS: 1.1.1

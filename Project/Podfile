@@ -9,6 +9,9 @@ target 'FireDemo' do
 
     pod 'ActionKit', :git => 'https://github.com/AurelT/ActionKit.git', :branch => 'swift3.0'
 
+	pod 'FacebookCore'
+	pod 'FacebookLogin'
+
     pod 'Firebase', '3.8.0'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'

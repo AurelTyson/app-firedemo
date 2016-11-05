@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,30 +20,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqu-sg-ewF">
-                        <rect key="frame" x="16" y="0.0" width="260.5" height="43.5"/>
+                        <rect key="frame" x="16" y="0.0" width="216" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm2-bT-0QM">
-                        <rect key="frame" x="276.5" y="0.0" width="43.5" height="43.5"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm2-bT-0QM">
+                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dm2-bT-0QM" secondAttribute="height" multiplier="1:1" id="8xN-7N-pG2"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6u-CG-FMg">
+                        <rect key="frame" x="232" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="N6u-CG-FMg" secondAttribute="height" multiplier="1:1" id="nfF-If-mjh"/>
+                        </constraints>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dm2-bT-0QM" firstAttribute="leading" secondItem="Fqu-sg-ewF" secondAttribute="trailing" id="0Xe-sO-9wM"/>
+                    <constraint firstItem="N6u-CG-FMg" firstAttribute="leading" secondItem="Fqu-sg-ewF" secondAttribute="trailing" id="4fX-zx-IBv"/>
                     <constraint firstAttribute="bottom" secondItem="dm2-bT-0QM" secondAttribute="bottom" id="9lD-eL-CZf"/>
+                    <constraint firstItem="dm2-bT-0QM" firstAttribute="leading" secondItem="N6u-CG-FMg" secondAttribute="trailing" id="OoD-B9-ua6"/>
                     <constraint firstItem="Fqu-sg-ewF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QJ8-Le-oU1"/>
                     <constraint firstItem="dm2-bT-0QM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XWp-5m-xoz"/>
                     <constraint firstAttribute="trailing" secondItem="dm2-bT-0QM" secondAttribute="trailing" id="aeX-fP-hK5"/>
                     <constraint firstItem="Fqu-sg-ewF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ea5-Lf-BHv"/>
+                    <constraint firstItem="N6u-CG-FMg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jDE-CX-iXP"/>
                     <constraint firstAttribute="bottom" secondItem="Fqu-sg-ewF" secondAttribute="bottom" id="jJs-WU-yVB"/>
+                    <constraint firstAttribute="bottom" secondItem="N6u-CG-FMg" secondAttribute="bottom" id="zCF-ZU-6zX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnDelete" destination="N6u-CG-FMg" id="RM1-gh-t5h"/>
                 <outlet property="btnEtat" destination="dm2-bT-0QM" id="dxW-zg-V7i"/>
                 <outlet property="labelNom" destination="Fqu-sg-ewF" id="TtD-dm-0j0"/>
             </connections>
