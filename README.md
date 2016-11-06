@@ -33,19 +33,19 @@ Open 'FireDemo.xcworkspace'
 
 ## Configuration
 
-* Firebase
+### Firebase
 
-Create you own Firebase account.
-Create a new app.
-Generate and replace the GoogleService-Info.plist file.
-Enable authentication from Facebook in Firebase console.
+* Create you own Firebase account.
+* Create a new app.
+* Generate and replace the GoogleService-Info.plist file.
+* Enable authentication from Facebook in Firebase console.
 
-* Facebook authentication
+### Facebook authentication
 
-Enable authentication from Facebook in Firebase console.
-Create an app in [Facebook dev center](https://developers.facebook.com/apps/).
-Set the application id and passphrase of the Facebook app in Firebase console.
-Set the application id of the iOS app and the OAuth redirection URI in Facebook dev center.
+* Enable authentication from Facebook in Firebase console.
+* Create an app in [Facebook dev center](https://developers.facebook.com/apps/).
+* Set the application id and passphrase of the Facebook app in Firebase console.
+* Set the application id of the iOS app and the OAuth redirection URI in Facebook dev center.
 
 ## Pull requests and issues
 
